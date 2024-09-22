@@ -19,8 +19,8 @@ import org.fusesource.stomp.client.Promise;
 import org.fusesource.stomp.codec.StompFrame;
 import org.fusesource.stomp.jms.message.StompJmsMessage;
 
-import javax.jms.IllegalStateException;
-import javax.jms.*;
+import jakarta.jms.IllegalStateException;
+import jakarta.jms.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -78,7 +78,7 @@ public class StompJmsMessageConsumer implements MessageConsumer, StompJmsMessage
 
     /**
      * @throws JMSException
-     * @see javax.jms.MessageConsumer#close()
+     * @see jakarta.jms.MessageConsumer#close()
      */
     public void close() throws JMSException {
         if(closed.compareAndSet(false, true)) {
@@ -98,7 +98,7 @@ public class StompJmsMessageConsumer implements MessageConsumer, StompJmsMessage
     /**
      * @return the Message Selector
      * @throws JMSException
-     * @see javax.jms.MessageConsumer#getMessageSelector()
+     * @see jakarta.jms.MessageConsumer#getMessageSelector()
      */
     public String getMessageSelector() throws JMSException {
         checkClosed();
@@ -108,7 +108,7 @@ public class StompJmsMessageConsumer implements MessageConsumer, StompJmsMessage
     /**
      * @return a Message or null if closed during the operation
      * @throws JMSException
-     * @see javax.jms.MessageConsumer#receive()
+     * @see jakarta.jms.MessageConsumer#receive()
      */
     public Message receive() throws JMSException {
         checkClosed();
@@ -123,7 +123,7 @@ public class StompJmsMessageConsumer implements MessageConsumer, StompJmsMessage
      * @param timeout
      * @return a MEssage or null
      * @throws JMSException
-     * @see javax.jms.MessageConsumer#receive(long)
+     * @see jakarta.jms.MessageConsumer#receive(long)
      */
     public Message receive(long timeout) throws JMSException {
         checkClosed();
@@ -137,7 +137,7 @@ public class StompJmsMessageConsumer implements MessageConsumer, StompJmsMessage
     /**
      * @return a Message or null
      * @throws JMSException
-     * @see javax.jms.MessageConsumer#receiveNoWait()
+     * @see jakarta.jms.MessageConsumer#receiveNoWait()
      */
     public Message receiveNoWait() throws JMSException {
         checkClosed();
@@ -148,7 +148,7 @@ public class StompJmsMessageConsumer implements MessageConsumer, StompJmsMessage
     /**
      * @param listener
      * @throws JMSException
-     * @see javax.jms.MessageConsumer#setMessageListener(javax.jms.MessageListener)
+     * @see jakarta.jms.MessageConsumer#setMessageListener(jakarta.jms.MessageListener)
      */
     public void setMessageListener(MessageListener listener) throws JMSException {
         checkClosed();
@@ -248,7 +248,7 @@ public class StompJmsMessageConsumer implements MessageConsumer, StompJmsMessage
                 message.setAcknowledgeCallback(new Callable<Void>(){
                     public Void call() throws Exception {
                         if( session.channel == null ) {
-                            throw new javax.jms.IllegalStateException("Session closed.");
+                            throw new jakarta.jms.IllegalStateException("Session closed.");
                         }
                         doAck(message);
                         return null;

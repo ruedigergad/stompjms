@@ -14,7 +14,7 @@ package org.fusesource.stomp.jms;
 import org.fusesource.stomp.jms.jndi.JNDIStorable;
 import org.fusesource.stomp.jms.util.PropertyUtil;
 
-import javax.jms.*;
+import jakarta.jms.*;
 import javax.net.ssl.SSLContext;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -92,7 +92,7 @@ public class StompJmsConnectionFactory extends JNDIStorable implements Connectio
     /**
      * @return a TopicConnection
      * @throws JMSException
-     * @see javax.jms.TopicConnectionFactory#createTopicConnection()
+     * @see jakarta.jms.TopicConnectionFactory#createTopicConnection()
      */
     public TopicConnection createTopicConnection() throws JMSException {
         return createTopicConnection( getUsername(), getPassword());
@@ -103,7 +103,7 @@ public class StompJmsConnectionFactory extends JNDIStorable implements Connectio
      * @param password
      * @return a TopicConnection
      * @throws JMSException
-     * @see javax.jms.TopicConnectionFactory#createTopicConnection(java.lang.String, java.lang.String)
+     * @see jakarta.jms.TopicConnectionFactory#createTopicConnection(java.lang.String, java.lang.String)
      */
     public TopicConnection createTopicConnection(String userName, String password) throws JMSException {
         try {
@@ -118,7 +118,7 @@ public class StompJmsConnectionFactory extends JNDIStorable implements Connectio
     /**
      * @return a Connection
      * @throws JMSException
-     * @see javax.jms.ConnectionFactory#createConnection()
+     * @see jakarta.jms.ConnectionFactory#createConnection()
      */
     public Connection createConnection() throws JMSException {
         return createConnection(getUsername(), getPassword());
@@ -129,7 +129,7 @@ public class StompJmsConnectionFactory extends JNDIStorable implements Connectio
      * @param password
      * @return Connection
      * @throws JMSException
-     * @see javax.jms.ConnectionFactory#createConnection(java.lang.String, java.lang.String)
+     * @see jakarta.jms.ConnectionFactory#createConnection(java.lang.String, java.lang.String)
      */
     public Connection createConnection(String userName, String password) throws JMSException {
         try {
@@ -144,7 +144,7 @@ public class StompJmsConnectionFactory extends JNDIStorable implements Connectio
     /**
      * @return a QueueConnection
      * @throws JMSException
-     * @see javax.jms.QueueConnectionFactory#createQueueConnection()
+     * @see jakarta.jms.QueueConnectionFactory#createQueueConnection()
      */
     public QueueConnection createQueueConnection() throws JMSException {
         return createQueueConnection(getUsername(), getPassword());
@@ -155,7 +155,7 @@ public class StompJmsConnectionFactory extends JNDIStorable implements Connectio
      * @param password
      * @return a QueueConnection
      * @throws JMSException
-     * @see javax.jms.QueueConnectionFactory#createQueueConnection(java.lang.String, java.lang.String)
+     * @see jakarta.jms.QueueConnectionFactory#createQueueConnection(java.lang.String, java.lang.String)
      */
     public QueueConnection createQueueConnection(String userName, String password) throws JMSException {
         try {
@@ -315,5 +315,24 @@ public class StompJmsConnectionFactory extends JNDIStorable implements Connectio
 
     public void setSslContext(SSLContext sslContext) {
         this.sslContext = sslContext;
+    }
+
+    /*
+     * New Methods from switching to jakarta.jms.
+     */
+    public JMSContext createContext() {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public JMSContext createContext(int i) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public JMSContext createContext(String s1, String s2) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public JMSContext createContext(String s1, String s2, int i) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
     }
 }

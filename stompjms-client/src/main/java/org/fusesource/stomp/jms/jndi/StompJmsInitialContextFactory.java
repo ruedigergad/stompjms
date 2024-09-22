@@ -26,8 +26,8 @@ import java.util.Properties;
 import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.jms.Queue;
-import javax.jms.Topic;
+import jakarta.jms.Queue;
+import jakarta.jms.Topic;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.naming.spi.InitialContextFactory;
@@ -38,7 +38,7 @@ import org.fusesource.stomp.jms.StompJmsTopic;
 
 /**
  * A factory of the StompJms InitialContext which contains
- * {@link javax.jms.ConnectionFactory} instances as well as a child context called
+ * {@link jakarta.jms.ConnectionFactory} instances as well as a child context called
  * <i>destinations</i> which contain all of the current active destinations, in
  * child context depending on the QoS such as transient or durable and queue or
  * topic.

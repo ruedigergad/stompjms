@@ -17,8 +17,8 @@ import org.fusesource.hawtbuf.ByteArrayOutputStream;
 import org.fusesource.stomp.codec.StompFrame;
 import org.fusesource.stomp.jms.message.*;
 
-import javax.jms.*;
-import javax.jms.IllegalStateException;
+import jakarta.jms.*;
+import jakarta.jms.IllegalStateException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return acknowledgeMode
      * @throws JMSException
-     * @see javax.jms.Session#getAcknowledgeMode()
+     * @see jakarta.jms.Session#getAcknowledgeMode()
      */
     public int getAcknowledgeMode() throws JMSException {
         checkClosed();
@@ -84,7 +84,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return true if transacted
      * @throws JMSException
-     * @see javax.jms.Session#getTransacted()
+     * @see jakarta.jms.Session#getTransacted()
      */
     public boolean getTransacted() throws JMSException {
         checkClosed();
@@ -94,7 +94,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return the Sesion messageListener
      * @throws JMSException
-     * @see javax.jms.Session#getMessageListener()
+     * @see jakarta.jms.Session#getMessageListener()
      */
     public MessageListener getMessageListener() throws JMSException {
         checkClosed();
@@ -104,7 +104,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @param listener
      * @throws JMSException
-     * @see javax.jms.Session#setMessageListener(javax.jms.MessageListener)
+     * @see jakarta.jms.Session#setMessageListener(jakarta.jms.MessageListener)
      */
     public void setMessageListener(MessageListener listener) throws JMSException {
         checkClosed();
@@ -113,24 +113,24 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
 
     /**
      * @throws JMSException
-     * @see javax.jms.Session#recover()
+     * @see jakarta.jms.Session#recover()
      */
     public void recover() throws JMSException {
         checkClosed();
         if (getTransacted()) {
-            throw new javax.jms.IllegalStateException("Cannot call recover() on a transacted session");
+            throw new jakarta.jms.IllegalStateException("Cannot call recover() on a transacted session");
         }
         // TODO: re-deliver all un-acked client-ack messages.
     }
 
     /**
      * @throws JMSException
-     * @see javax.jms.Session#commit()
+     * @see jakarta.jms.Session#commit()
      */
     public void commit() throws JMSException {
         checkClosed();
         if (!getTransacted()) {
-            throw new javax.jms.IllegalStateException("Not a transacted session");
+            throw new jakarta.jms.IllegalStateException("Not a transacted session");
         }
         for (StompJmsMessageConsumer c : consumers.values()) {
             c.commit();
@@ -141,12 +141,12 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
 
     /**
      * @throws JMSException
-     * @see javax.jms.Session#rollback()
+     * @see jakarta.jms.Session#rollback()
      */
     public void rollback() throws JMSException {
         checkClosed();
         if (!getTransacted()) {
-            throw new javax.jms.IllegalStateException("Not a transacted session");
+            throw new jakarta.jms.IllegalStateException("Not a transacted session");
         }
         for (StompJmsMessageConsumer c : consumers.values()) {
             c.rollback();
@@ -163,7 +163,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     }
 
     /**
-     * @see javax.jms.Session#run()
+     * @see jakarta.jms.Session#run()
      */
     public void run() {
         // TODO Auto-generated method stub
@@ -171,7 +171,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
 
     /**
      * @throws JMSException
-     * @see javax.jms.Session#close()
+     * @see jakarta.jms.Session#close()
      */
     public void close() throws JMSException {
         if (closed.compareAndSet(false, true)) {
@@ -194,7 +194,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param destination
      * @return a MessageConsumer
      * @throws JMSException
-     * @see javax.jms.Session#createConsumer(javax.jms.Destination)
+     * @see jakarta.jms.Session#createConsumer(jakarta.jms.Destination)
      */
     public MessageConsumer createConsumer(Destination destination) throws JMSException {
         checkClosed();
@@ -210,7 +210,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param messageSelector
      * @return MessageConsumer
      * @throws JMSException
-     * @see javax.jms.Session#createConsumer(javax.jms.Destination,
+     * @see jakarta.jms.Session#createConsumer(jakarta.jms.Destination,
      *      java.lang.String)
      */
     public MessageConsumer createConsumer(Destination destination, String messageSelector) throws JMSException {
@@ -230,7 +230,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param NoLocal
      * @return the MessageConsumer
      * @throws JMSException
-     * @see javax.jms.Session#createConsumer(javax.jms.Destination,
+     * @see jakarta.jms.Session#createConsumer(jakarta.jms.Destination,
      *      java.lang.String, boolean)
      */
     public MessageConsumer createConsumer(Destination destination, String messageSelector, boolean NoLocal)
@@ -249,7 +249,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param queue
      * @return QueueRecevier
      * @throws JMSException
-     * @see javax.jms.QueueSession#createReceiver(javax.jms.Queue)
+     * @see jakarta.jms.QueueSession#createReceiver(jakarta.jms.Queue)
      */
     public QueueReceiver createReceiver(Queue queue) throws JMSException {
         checkClosed();
@@ -265,7 +265,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param messageSelector
      * @return QueueReceiver
      * @throws JMSException
-     * @see javax.jms.QueueSession#createReceiver(javax.jms.Queue,
+     * @see jakarta.jms.QueueSession#createReceiver(jakarta.jms.Queue,
      *      java.lang.String)
      */
     public QueueReceiver createReceiver(Queue queue, String messageSelector) throws JMSException {
@@ -282,7 +282,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param destination
      * @return QueueBrowser
      * @throws JMSException
-     * @see javax.jms.Session#createBrowser(javax.jms.Queue)
+     * @see jakarta.jms.Session#createBrowser(jakarta.jms.Queue)
      */
     public QueueBrowser createBrowser(Queue destination) throws JMSException {
         checkClosed();
@@ -297,7 +297,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param messageSelector
      * @return QueueBrowser
      * @throws JMSException
-     * @see javax.jms.Session#createBrowser(javax.jms.Queue, java.lang.String)
+     * @see jakarta.jms.Session#createBrowser(jakarta.jms.Queue, java.lang.String)
      */
     public QueueBrowser createBrowser(Queue destination, String messageSelector) throws JMSException {
         checkClosed();
@@ -312,7 +312,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param topic
      * @return TopicSubscriber
      * @throws JMSException
-     * @see javax.jms.TopicSession#createSubscriber(javax.jms.Topic)
+     * @see jakarta.jms.TopicSession#createSubscriber(jakarta.jms.Topic)
      */
     public TopicSubscriber createSubscriber(Topic topic) throws JMSException {
         checkClosed();
@@ -329,7 +329,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param noLocal
      * @return TopicSubscriber
      * @throws JMSException
-     * @see javax.jms.TopicSession#createSubscriber(javax.jms.Topic,
+     * @see jakarta.jms.TopicSession#createSubscriber(jakarta.jms.Topic,
      *      java.lang.String, boolean)
      */
     public TopicSubscriber createSubscriber(Topic topic, String messageSelector, boolean noLocal) throws JMSException {
@@ -346,7 +346,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param name
      * @return a TopicSubscriber
      * @throws JMSException
-     * @see javax.jms.Session#createDurableSubscriber(javax.jms.Topic,
+     * @see jakarta.jms.Session#createDurableSubscriber(jakarta.jms.Topic,
      *      java.lang.String)
      */
     public TopicSubscriber createDurableSubscriber(Topic topic, String name) throws JMSException {
@@ -366,7 +366,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param noLocal
      * @return TopicSubscriber
      * @throws JMSException
-     * @see javax.jms.Session#createDurableSubscriber(javax.jms.Topic,
+     * @see jakarta.jms.Session#createDurableSubscriber(jakarta.jms.Topic,
      *      java.lang.String, java.lang.String, boolean)
      */
     public TopicSubscriber createDurableSubscriber(Topic topic, String name, String messageSelector, boolean noLocal)
@@ -389,7 +389,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @param name
      * @throws JMSException
-     * @see javax.jms.Session#unsubscribe(java.lang.String)
+     * @see jakarta.jms.Session#unsubscribe(java.lang.String)
      */
     public void unsubscribe(String name) throws JMSException {
         checkClosed();
@@ -411,7 +411,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param destination
      * @return MessageProducer
      * @throws JMSException
-     * @see javax.jms.Session#createProducer(javax.jms.Destination)
+     * @see jakarta.jms.Session#createProducer(jakarta.jms.Destination)
      */
     public MessageProducer createProducer(Destination destination) throws JMSException {
         checkClosed();
@@ -425,7 +425,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param queue
      * @return QueueSender
      * @throws JMSException
-     * @see javax.jms.QueueSession#createSender(javax.jms.Queue)
+     * @see jakarta.jms.QueueSession#createSender(jakarta.jms.Queue)
      */
     public QueueSender createSender(Queue queue) throws JMSException {
         checkClosed();
@@ -438,7 +438,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param topic
      * @return TopicPublisher
      * @throws JMSException
-     * @see javax.jms.TopicSession#createPublisher(javax.jms.Topic)
+     * @see jakarta.jms.TopicSession#createPublisher(jakarta.jms.Topic)
      */
     public TopicPublisher createPublisher(Topic topic) throws JMSException {
         checkClosed();
@@ -457,7 +457,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return BytesMessage
      * @throws IllegalStateException
-     * @see javax.jms.Session#createBytesMessage()
+     * @see jakarta.jms.Session#createBytesMessage()
      */
     public BytesMessage createBytesMessage() throws IllegalStateException {
         checkClosed();
@@ -467,7 +467,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return MapMessage
      * @throws IllegalStateException
-     * @see javax.jms.Session#createMapMessage()
+     * @see jakarta.jms.Session#createMapMessage()
      */
     public MapMessage createMapMessage() throws IllegalStateException {
         checkClosed();
@@ -477,7 +477,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return Message
      * @throws IllegalStateException
-     * @see javax.jms.Session#createMessage()
+     * @see jakarta.jms.Session#createMessage()
      */
     public Message createMessage() throws IllegalStateException {
         checkClosed();
@@ -487,7 +487,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return ObjectMessage
      * @throws IllegalStateException
-     * @see javax.jms.Session#createObjectMessage()
+     * @see jakarta.jms.Session#createObjectMessage()
      */
     public ObjectMessage createObjectMessage() throws IllegalStateException {
         checkClosed();
@@ -498,7 +498,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param object
      * @return ObjectMessage
      * @throws JMSException
-     * @see javax.jms.Session#createObjectMessage(java.io.Serializable)
+     * @see jakarta.jms.Session#createObjectMessage(java.io.Serializable)
      */
     public ObjectMessage createObjectMessage(Serializable object) throws JMSException {
         ObjectMessage result = createObjectMessage();
@@ -509,7 +509,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return StreamMessage
      * @throws JMSException
-     * @see javax.jms.Session#createStreamMessage()
+     * @see jakarta.jms.Session#createStreamMessage()
      */
     public StreamMessage createStreamMessage() throws JMSException {
         checkClosed();
@@ -519,7 +519,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return TextMessage
      * @throws JMSException
-     * @see javax.jms.Session#createTextMessage()
+     * @see jakarta.jms.Session#createTextMessage()
      */
     public TextMessage createTextMessage() throws JMSException {
         checkClosed();
@@ -530,7 +530,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param text
      * @return TextMessage
      * @throws JMSException
-     * @see javax.jms.Session#createTextMessage(java.lang.String)
+     * @see jakarta.jms.Session#createTextMessage(java.lang.String)
      */
     public TextMessage createTextMessage(String text) throws JMSException {
         TextMessage result = createTextMessage();
@@ -548,7 +548,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param queueName
      * @return Queue
      * @throws JMSException
-     * @see javax.jms.Session#createQueue(java.lang.String)
+     * @see jakarta.jms.Session#createQueue(java.lang.String)
      */
     public Queue createQueue(String queueName) throws JMSException {
         checkClosed();
@@ -558,7 +558,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return TemporaryQueue
      * @throws JMSException
-     * @see javax.jms.Session#createTemporaryQueue()
+     * @see jakarta.jms.Session#createTemporaryQueue()
      */
     public TemporaryQueue createTemporaryQueue() throws JMSException {
         checkClosed();
@@ -568,7 +568,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
     /**
      * @return TemporaryTopic
      * @throws JMSException
-     * @see javax.jms.Session#createTemporaryTopic()
+     * @see jakarta.jms.Session#createTemporaryTopic()
      */
     public TemporaryTopic createTemporaryTopic() throws JMSException {
         checkClosed();
@@ -579,7 +579,7 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
      * @param topicName
      * @return Topic
      * @throws JMSException
-     * @see javax.jms.Session#createTopic(java.lang.String)
+     * @see jakarta.jms.Session#createTopic(java.lang.String)
      */
     public Topic createTopic(String topicName) throws JMSException {
         checkClosed();
@@ -871,5 +871,32 @@ public class StompJmsSession implements Session, QueueSession, TopicSession, Sto
 
     public void setPrefetch(StompJmsPrefetch prefetch) {
         this.prefetch = prefetch;
+    }
+
+    /*
+     * New Methods from switching to jakarta.jms.
+     */
+    public MessageConsumer createDurableConsumer(Topic t ,String s1) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public MessageConsumer createSharedConsumer(Topic t ,String s1) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public MessageConsumer createSharedConsumer(Topic t ,String s1, String s2) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public MessageConsumer createSharedDurableConsumer(Topic t ,String s1) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public MessageConsumer createSharedDurableConsumer(Topic t ,String s1, String s2) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public MessageConsumer createDurableConsumer(Topic t, String s1, String s2, boolean b) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
     }
 }

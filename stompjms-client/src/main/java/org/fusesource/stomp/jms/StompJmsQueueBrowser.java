@@ -13,8 +13,8 @@ package org.fusesource.stomp.jms;
 import org.fusesource.hawtbuf.AsciiBuffer;
 import org.fusesource.stomp.jms.message.StompJmsMessage;
 
-import javax.jms.IllegalStateException;
-import javax.jms.*;
+import jakarta.jms.IllegalStateException;
+import jakarta.jms.*;
 import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicBoolean;
 import static org.fusesource.stomp.client.Constants.*;
@@ -38,10 +38,10 @@ import static org.fusesource.stomp.client.Constants.*;
  * </CODE>
  * or a <CODE>QueueSession</CODE>.
  *
- * @see javax.jms.Session#createBrowser
- * @see javax.jms.QueueSession#createBrowser
- * @see javax.jms.QueueBrowser
- * @see javax.jms.QueueReceiver
+ * @see jakarta.jms.Session#createBrowser
+ * @see jakarta.jms.QueueSession#createBrowser
+ * @see jakarta.jms.QueueBrowser
+ * @see jakarta.jms.QueueReceiver
  */
 
 public class StompJmsQueueBrowser implements QueueBrowser, Enumeration {
@@ -63,7 +63,7 @@ public class StompJmsQueueBrowser implements QueueBrowser, Enumeration {
      * @param id
      * @param destination
      * @param selector
-     * @throws javax.jms.JMSException
+     * @throws jakarta.jms.JMSException
      */
     protected StompJmsQueueBrowser(StompJmsSession session, AsciiBuffer id, StompJmsDestination destination, String selector) throws JMSException {
         this.session = session;
@@ -121,7 +121,7 @@ public class StompJmsQueueBrowser implements QueueBrowser, Enumeration {
      * they would be received.
      *
      * @return an enumeration for browsing the messages
-     * @throws javax.jms.JMSException if the JMS provider fails to get the enumeration for
+     * @throws jakarta.jms.JMSException if the JMS provider fails to get the enumeration for
      *                                this browser due to some internal error.
      */
 
@@ -204,7 +204,7 @@ public class StompJmsQueueBrowser implements QueueBrowser, Enumeration {
      * Gets the queue associated with this queue browser.
      *
      * @return the queue
-     * @throws javax.jms.JMSException if the JMS provider fails to get the queue
+     * @throws jakarta.jms.JMSException if the JMS provider fails to get the queue
      *                                associated with this browser due to some internal error.
      */
 

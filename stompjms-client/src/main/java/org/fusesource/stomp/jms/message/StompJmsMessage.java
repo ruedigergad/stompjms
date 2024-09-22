@@ -19,7 +19,7 @@ import org.fusesource.stomp.codec.StompFrame;
 import org.fusesource.stomp.jms.util.TypeConversionSupport;
 import org.fusesource.stomp.jms.util.PropertyExpression;
 
-import javax.jms.*;
+import jakarta.jms.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
@@ -29,7 +29,7 @@ import static org.fusesource.hawtbuf.Buffer.ascii;
 import static org.fusesource.stomp.client.Constants.*;
 import static org.fusesource.stomp.codec.StompFrame.*;
 
-public class StompJmsMessage implements javax.jms.Message {
+public class StompJmsMessage implements jakarta.jms.Message {
 
     private static final Map<String, PropertySetter> JMS_PROPERTY_SETERS = new HashMap<String, PropertySetter>();
 
@@ -899,5 +899,24 @@ public class StompJmsMessage implements javax.jms.Message {
 
     public void setConnection(StompJmsConnection connection) {
         this.connection = connection;
+    }
+
+    /*
+     * New Methods from switching to jakarta.jms.
+     */
+    public boolean isBodyAssignableTo(Class c) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public Object getBody(Class c) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public void setJMSDeliveryTime(long l) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public long getJMSDeliveryTime() {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
     }
 }

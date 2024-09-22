@@ -10,7 +10,7 @@
 
 package org.fusesource.stomp.jms;
 
-import javax.jms.TemporaryQueue;
+import jakarta.jms.TemporaryQueue;
 
 
 /**
@@ -33,7 +33,7 @@ public class StompJmsTempQueue extends StompJmsDestination implements TemporaryQ
     }
 
     /**
-     * @see javax.jms.TemporaryQueue#delete()
+     * @see jakarta.jms.TemporaryQueue#delete()
      */
     public void delete() {
         // TODO: stomp does not really have a way to delete destinations.. :(
@@ -41,7 +41,7 @@ public class StompJmsTempQueue extends StompJmsDestination implements TemporaryQ
 
     /**
      * @return name
-     * @see javax.jms.Queue#getQueueName()
+     * @see jakarta.jms.Queue#getQueueName()
      */
     public String getQueueName() {
         return getName();

@@ -12,8 +12,8 @@ package org.fusesource.stomp.jms;
 
 import org.fusesource.stomp.jms.message.StompJmsMessageTransformation;
 
-import javax.jms.*;
-import javax.jms.IllegalStateException;
+import jakarta.jms.*;
+import jakarta.jms.IllegalStateException;
 
 /**
  * Implementation of a Jms MessageProducer
@@ -38,7 +38,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * Close the producer
      *
-     * @see javax.jms.MessageProducer#close()
+     * @see jakarta.jms.MessageProducer#close()
      */
     public void close() {
         this.closed = true;
@@ -48,7 +48,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @return the delivery mode
      * @throws JMSException
-     * @see javax.jms.MessageProducer#getDeliveryMode()
+     * @see jakarta.jms.MessageProducer#getDeliveryMode()
      */
     public int getDeliveryMode() throws JMSException {
         checkClosed();
@@ -58,7 +58,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @return the destination
      * @throws JMSException
-     * @see javax.jms.MessageProducer#getDestination()
+     * @see jakarta.jms.MessageProducer#getDestination()
      */
     public Destination getDestination() throws JMSException {
         checkClosed();
@@ -68,7 +68,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @return true if disableIds is set
      * @throws JMSException
-     * @see javax.jms.MessageProducer#getDisableMessageID()
+     * @see jakarta.jms.MessageProducer#getDisableMessageID()
      */
     public boolean getDisableMessageID() throws JMSException {
         checkClosed();
@@ -78,7 +78,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @return true if disable timestamp is set
      * @throws JMSException
-     * @see javax.jms.MessageProducer#getDisableMessageTimestamp()
+     * @see jakarta.jms.MessageProducer#getDisableMessageTimestamp()
      */
     public boolean getDisableMessageTimestamp() throws JMSException {
         checkClosed();
@@ -88,7 +88,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @return the priority
      * @throws JMSException
-     * @see javax.jms.MessageProducer#getPriority()
+     * @see jakarta.jms.MessageProducer#getPriority()
      */
     public int getPriority() throws JMSException {
         checkClosed();
@@ -98,7 +98,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @return timeToLive
      * @throws JMSException
-     * @see javax.jms.MessageProducer#getTimeToLive()
+     * @see jakarta.jms.MessageProducer#getTimeToLive()
      */
     public long getTimeToLive() throws JMSException {
         checkClosed();
@@ -108,7 +108,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @param message
      * @throws JMSException
-     * @see javax.jms.MessageProducer#send(javax.jms.Message)
+     * @see jakarta.jms.MessageProducer#send(jakarta.jms.Message)
      */
     public void send(Message message) throws JMSException {
         send(this.destination, message, this.deliveryMode, this.priority, this.timeToLive);
@@ -118,7 +118,7 @@ public class StompJmsMessageProducer implements MessageProducer {
      * @param destination
      * @param message
      * @throws JMSException
-     * @see javax.jms.MessageProducer#send(javax.jms.Destination, javax.jms.Message)
+     * @see jakarta.jms.MessageProducer#send(jakarta.jms.Destination, jakarta.jms.Message)
      */
     public void send(Destination destination, Message message) throws JMSException {
         send(destination, message, this.deliveryMode, this.priority, this.timeToLive);
@@ -130,7 +130,7 @@ public class StompJmsMessageProducer implements MessageProducer {
      * @param priority
      * @param timeToLive
      * @throws JMSException
-     * @see javax.jms.MessageProducer#send(javax.jms.Message, int, int, long)
+     * @see jakarta.jms.MessageProducer#send(jakarta.jms.Message, int, int, long)
      */
     public void send(Message message, int deliveryMode, int priority, long timeToLive) throws JMSException {
         send(this.destination, message, deliveryMode, priority, timeToLive);
@@ -143,7 +143,7 @@ public class StompJmsMessageProducer implements MessageProducer {
      * @param priority
      * @param timeToLive
      * @throws JMSException
-     * @see javax.jms.MessageProducer#send(javax.jms.Destination, javax.jms.Message, int, int, long)
+     * @see jakarta.jms.MessageProducer#send(jakarta.jms.Destination, jakarta.jms.Message, int, int, long)
      */
     public void send(Destination destination, Message message, int deliveryMode, int priority, long timeToLive)
             throws JMSException {
@@ -160,7 +160,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @param deliveryMode
      * @throws JMSException
-     * @see javax.jms.MessageProducer#setDeliveryMode(int)
+     * @see jakarta.jms.MessageProducer#setDeliveryMode(int)
      */
     public void setDeliveryMode(int deliveryMode) throws JMSException {
         checkClosed();
@@ -170,7 +170,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @param value
      * @throws JMSException
-     * @see javax.jms.MessageProducer#setDisableMessageID(boolean)
+     * @see jakarta.jms.MessageProducer#setDisableMessageID(boolean)
      */
     public void setDisableMessageID(boolean value) throws JMSException {
         checkClosed();
@@ -180,7 +180,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @param value
      * @throws JMSException
-     * @see javax.jms.MessageProducer#setDisableMessageTimestamp(boolean)
+     * @see jakarta.jms.MessageProducer#setDisableMessageTimestamp(boolean)
      */
     public void setDisableMessageTimestamp(boolean value) throws JMSException {
         checkClosed();
@@ -190,7 +190,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @param defaultPriority
      * @throws JMSException
-     * @see javax.jms.MessageProducer#setPriority(int)
+     * @see jakarta.jms.MessageProducer#setPriority(int)
      */
     public void setPriority(int defaultPriority) throws JMSException {
         checkClosed();
@@ -200,7 +200,7 @@ public class StompJmsMessageProducer implements MessageProducer {
     /**
      * @param timeToLive
      * @throws JMSException
-     * @see javax.jms.MessageProducer#setTimeToLive(long)
+     * @see jakarta.jms.MessageProducer#setTimeToLive(long)
      */
     public void setTimeToLive(long timeToLive) throws JMSException {
         checkClosed();
@@ -227,5 +227,32 @@ public class StompJmsMessageProducer implements MessageProducer {
         if (this.closed) {
             throw new IllegalStateException("The MessageProducer is closed");
         }
+    }
+
+    /*
+     * New Methods from switching to jakarta.jms.
+     */
+    public long getDeliveryDelay() {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public void setDeliveryDelay(long l) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public void send(Message m, CompletionListener cl) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public void send(Destination d, Message m, CompletionListener cl) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public void send(Message m, int i1, int i2, long l, CompletionListener cl) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public void send(Destination d, Message m, int i1, int i2, long l, CompletionListener cl) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
     }
 }

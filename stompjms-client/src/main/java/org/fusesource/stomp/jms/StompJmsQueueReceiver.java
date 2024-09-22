@@ -12,10 +12,10 @@ package org.fusesource.stomp.jms;
 
 import org.fusesource.hawtbuf.AsciiBuffer;
 
-import javax.jms.IllegalStateException;
-import javax.jms.JMSException;
-import javax.jms.Queue;
-import javax.jms.QueueReceiver;
+import jakarta.jms.IllegalStateException;
+import jakarta.jms.JMSException;
+import jakarta.jms.Queue;
+import jakarta.jms.QueueReceiver;
 
 /**
  * Implementation of a Jms QueueReceiver
@@ -34,7 +34,7 @@ public class StompJmsQueueReceiver extends StompJmsMessageConsumer implements Qu
     /**
      * @return the Queue
      * @throws IllegalStateException
-     * @see javax.jms.QueueReceiver#getQueue()
+     * @see jakarta.jms.QueueReceiver#getQueue()
      */
     public Queue getQueue() throws IllegalStateException {
         checkClosed();

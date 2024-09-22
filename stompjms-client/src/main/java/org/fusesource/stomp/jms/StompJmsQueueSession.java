@@ -10,8 +10,8 @@
 
 package org.fusesource.stomp.jms;
 
-import javax.jms.*;
-import javax.jms.IllegalStateException;
+import jakarta.jms.*;
+import jakarta.jms.IllegalStateException;
 
 
 /**
@@ -40,7 +40,7 @@ public class StompJmsQueueSession extends StompJmsSession {
      * @param messageSelector
      * @return
      * @throws JMSException
-     * @see javax.jms.Session#createConsumer(javax.jms.Destination, java.lang.String)
+     * @see jakarta.jms.Session#createConsumer(jakarta.jms.Destination, java.lang.String)
      */
     public MessageConsumer createConsumer(Destination destination, String messageSelector) throws JMSException {
         if (destination instanceof Topic) {
@@ -55,7 +55,7 @@ public class StompJmsQueueSession extends StompJmsSession {
      * @param NoLocal
      * @return
      * @throws JMSException
-     * @see javax.jms.Session#createConsumer(javax.jms.Destination, java.lang.String, boolean)
+     * @see jakarta.jms.Session#createConsumer(jakarta.jms.Destination, java.lang.String, boolean)
      */
     public MessageConsumer createConsumer(Destination destination, String messageSelector, boolean NoLocal)
             throws JMSException {
@@ -67,7 +67,7 @@ public class StompJmsQueueSession extends StompJmsSession {
      * @param name
      * @return
      * @throws JMSException
-     * @see javax.jms.Session#createDurableSubscriber(javax.jms.Topic, java.lang.String)
+     * @see jakarta.jms.Session#createDurableSubscriber(jakarta.jms.Topic, java.lang.String)
      */
     public TopicSubscriber createDurableSubscriber(Topic topic, String name) throws JMSException {
         throw new IllegalStateException("Operation not supported by a QueueSession");
@@ -81,7 +81,7 @@ public class StompJmsQueueSession extends StompJmsSession {
      * @return
      * @throws IllegalStateException
      * @throws JMSException
-     * @see javax.jms.Session#createDurableSubscriber(javax.jms.Topic, java.lang.String, java.lang.String, boolean)
+     * @see jakarta.jms.Session#createDurableSubscriber(jakarta.jms.Topic, java.lang.String, java.lang.String, boolean)
      */
     public TopicSubscriber createDurableSubscriber(Topic topic, String name, String messageSelector, boolean noLocal)
             throws IllegalStateException {
@@ -92,7 +92,7 @@ public class StompJmsQueueSession extends StompJmsSession {
      * @param destination
      * @return
      * @throws JMSException
-     * @see javax.jms.Session#createProducer(javax.jms.Destination)
+     * @see jakarta.jms.Session#createProducer(jakarta.jms.Destination)
      */
     public MessageProducer createProducer(Destination destination) throws JMSException {
         if (destination instanceof Topic) {
@@ -104,7 +104,7 @@ public class StompJmsQueueSession extends StompJmsSession {
     /**
      * @return
      * @throws JMSException
-     * @see javax.jms.Session#createTemporaryTopic()
+     * @see jakarta.jms.Session#createTemporaryTopic()
      */
     public TemporaryTopic createTemporaryTopic() throws JMSException {
         throw new IllegalStateException("Operation not supported by a QueueSession");
@@ -114,7 +114,7 @@ public class StompJmsQueueSession extends StompJmsSession {
      * @param topicName
      * @return
      * @throws JMSException
-     * @see javax.jms.Session#createTopic(java.lang.String)
+     * @see jakarta.jms.Session#createTopic(java.lang.String)
      */
     public Topic createTopic(String topicName) throws JMSException {
         throw new IllegalStateException("Operation not supported by a QueueSession");
@@ -123,7 +123,7 @@ public class StompJmsQueueSession extends StompJmsSession {
     /**
      * @param name
      * @throws JMSException
-     * @see javax.jms.Session#unsubscribe(java.lang.String)
+     * @see jakarta.jms.Session#unsubscribe(java.lang.String)
      */
     public void unsubscribe(String name) throws JMSException {
         throw new IllegalStateException("Operation not supported by a QueueSession");
@@ -133,7 +133,7 @@ public class StompJmsQueueSession extends StompJmsSession {
      * @param topic
      * @return
      * @throws JMSException
-     * @see javax.jms.TopicSession#createPublisher(javax.jms.Topic)
+     * @see jakarta.jms.TopicSession#createPublisher(jakarta.jms.Topic)
      */
     public TopicPublisher createPublisher(Topic topic) throws JMSException {
         throw new IllegalStateException("Operation not supported by a QueueSession");
@@ -143,7 +143,7 @@ public class StompJmsQueueSession extends StompJmsSession {
      * @param topic
      * @return
      * @throws JMSException
-     * @see javax.jms.TopicSession#createSubscriber(javax.jms.Topic)
+     * @see jakarta.jms.TopicSession#createSubscriber(jakarta.jms.Topic)
      */
     public TopicSubscriber createSubscriber(Topic topic) throws JMSException {
         throw new IllegalStateException("Operation not supported by a QueueSession");
@@ -155,7 +155,7 @@ public class StompJmsQueueSession extends StompJmsSession {
      * @param noLocal
      * @return
      * @throws JMSException
-     * @see javax.jms.TopicSession#createSubscriber(javax.jms.Topic, java.lang.String, boolean)
+     * @see jakarta.jms.TopicSession#createSubscriber(jakarta.jms.Topic, java.lang.String, boolean)
      */
     public TopicSubscriber createSubscriber(Topic topic, String messageSelector, boolean noLocal) throws JMSException {
         throw new IllegalStateException("Operation not supported by a QueueSession");

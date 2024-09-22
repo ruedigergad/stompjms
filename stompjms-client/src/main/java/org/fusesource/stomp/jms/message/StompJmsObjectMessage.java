@@ -13,8 +13,8 @@ package org.fusesource.stomp.jms.message;
 import org.fusesource.hawtbuf.Buffer;
 import org.fusesource.stomp.jms.util.StompTranslator;
 
-import javax.jms.JMSException;
-import javax.jms.ObjectMessage;
+import jakarta.jms.JMSException;
+import jakarta.jms.ObjectMessage;
 import java.io.Serializable;
 
 /**
@@ -36,13 +36,13 @@ import java.io.Serializable;
  * written to.
  *
  * @openwire:marshaller code="26"
- * @see javax.jms.Session#createObjectMessage()
- * @see javax.jms.Session#createObjectMessage(Serializable)
- * @see javax.jms.BytesMessage
- * @see javax.jms.MapMessage
- * @see javax.jms.Message
- * @see javax.jms.StreamMessage
- * @see javax.jms.TextMessage
+ * @see jakarta.jms.Session#createObjectMessage()
+ * @see jakarta.jms.Session#createObjectMessage(Serializable)
+ * @see jakarta.jms.BytesMessage
+ * @see jakarta.jms.MapMessage
+ * @see jakarta.jms.Message
+ * @see jakarta.jms.StreamMessage
+ * @see jakarta.jms.TextMessage
  */
 public class StompJmsObjectMessage extends StompJmsMessage implements ObjectMessage {
     protected transient Serializable object;
@@ -98,9 +98,9 @@ public class StompJmsObjectMessage extends StompJmsMessage implements ObjectMess
      * @param newObject the message's data
      * @throws JMSException if the JMS provider fails to set the object due to some
      *                      internal error.
-     * @throws javax.jms.MessageFormatException
+     * @throws jakarta.jms.MessageFormatException
      *                      if object serialization fails.
-     * @throws javax.jms.MessageNotWriteableException
+     * @throws jakarta.jms.MessageNotWriteableException
      *                      if the message is in read-only mode.
      */
 

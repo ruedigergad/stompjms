@@ -10,8 +10,8 @@
 
 package org.fusesource.stomp.jms;
 
-import javax.jms.IllegalStateException;
-import javax.jms.*;
+import jakarta.jms.IllegalStateException;
+import jakarta.jms.*;
 
 /**
  * Implementation of a Queue Sender
@@ -30,7 +30,7 @@ public class StompJmsQueueSender extends StompJmsMessageProducer implements Queu
     /**
      * @return the Queue
      * @throws IllegalStateException
-     * @see javax.jms.QueueSender#getQueue()
+     * @see jakarta.jms.QueueSender#getQueue()
      */
     public Queue getQueue() throws IllegalStateException {
         checkClosed();
@@ -41,7 +41,7 @@ public class StompJmsQueueSender extends StompJmsMessageProducer implements Queu
      * @param queue
      * @param message
      * @throws JMSException
-     * @see javax.jms.QueueSender#send(javax.jms.Queue, javax.jms.Message)
+     * @see jakarta.jms.QueueSender#send(jakarta.jms.Queue, jakarta.jms.Message)
      */
     public void send(Queue queue, Message message) throws JMSException {
         super.send(queue, message);
@@ -54,7 +54,7 @@ public class StompJmsQueueSender extends StompJmsMessageProducer implements Queu
      * @param priority
      * @param timeToLive
      * @throws JMSException
-     * @see javax.jms.QueueSender#send(javax.jms.Queue, javax.jms.Message, int, int, long)
+     * @see jakarta.jms.QueueSender#send(jakarta.jms.Queue, jakarta.jms.Message, int, int, long)
      */
     public void send(Queue queue, Message message, int deliveryMode, int priority, long timeToLive) throws JMSException {
         super.send(message, deliveryMode, priority, timeToLive);

@@ -10,7 +10,7 @@
 
 package org.fusesource.stomp.jms;
 
-import javax.jms.TemporaryTopic;
+import jakarta.jms.TemporaryTopic;
 
 
 /**
@@ -32,7 +32,7 @@ public class StompJmsTempTopic extends StompJmsDestination implements TemporaryT
     }
 
     /**
-     * @see javax.jms.TemporaryTopic#delete()
+     * @see jakarta.jms.TemporaryTopic#delete()
      */
     public void delete() {
         // TODO: stomp does not really have a way to delete destinations.. :(
@@ -40,7 +40,7 @@ public class StompJmsTempTopic extends StompJmsDestination implements TemporaryT
 
     /**
      * @return name
-     * @see javax.jms.Topic#getTopicName()
+     * @see jakarta.jms.Topic#getTopicName()
      */
     public String getTopicName() {
         return getName();

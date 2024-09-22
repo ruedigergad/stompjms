@@ -10,7 +10,7 @@
 
 package org.fusesource.stomp.jms;
 
-import javax.jms.Topic;
+import jakarta.jms.Topic;
 
 /**
  * TemporaryQueue
@@ -44,7 +44,7 @@ public class StompJmsTopic extends StompJmsDestination implements Topic {
 
     /**
      * @return the name
-     * @see javax.jms.Topic#getTopicName()
+     * @see jakarta.jms.Topic#getTopicName()
      */
     public String getTopicName() {
         return getName();

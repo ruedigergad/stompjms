@@ -10,8 +10,8 @@
 
 package org.fusesource.stomp.jms;
 
-import javax.jms.*;
-import javax.jms.IllegalStateException;
+import jakarta.jms.*;
+import jakarta.jms.IllegalStateException;
 import javax.net.ssl.SSLContext;
 import java.net.URI;
 import java.util.List;
@@ -66,7 +66,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
 
     /**
      * @throws JMSException
-     * @see javax.jms.Connection#close()
+     * @see jakarta.jms.Connection#close()
      */
     public synchronized void close() throws JMSException {
         if (closed.compareAndSet(false, true)) {
@@ -92,8 +92,8 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
      * @param maxMessages
      * @return ConnectionConsumer
      * @throws JMSException
-     * @see javax.jms.Connection#createConnectionConsumer(javax.jms.Destination,
-     *      java.lang.String, javax.jms.ServerSessionPool, int)
+     * @see jakarta.jms.Connection#createConnectionConsumer(jakarta.jms.Destination,
+     *      java.lang.String, jakarta.jms.ServerSessionPool, int)
      */
     public ConnectionConsumer createConnectionConsumer(Destination destination, String messageSelector,
                                                        ServerSessionPool sessionPool, int maxMessages) throws JMSException {
@@ -110,8 +110,8 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
      * @param maxMessages
      * @return ConnectionConsumer
      * @throws JMSException
-     * @see javax.jms.Connection#createDurableConnectionConsumer(javax.jms.Topic,
-     *      java.lang.String, java.lang.String, javax.jms.ServerSessionPool,
+     * @see jakarta.jms.Connection#createDurableConnectionConsumer(jakarta.jms.Topic,
+     *      java.lang.String, java.lang.String, jakarta.jms.ServerSessionPool,
      *      int)
      */
     public ConnectionConsumer createDurableConnectionConsumer(Topic topic, String subscriptionName,
@@ -126,7 +126,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
      * @param acknowledgeMode
      * @return Session
      * @throws JMSException
-     * @see javax.jms.Connection#createSession(boolean, int)
+     * @see jakarta.jms.Connection#createSession(boolean, int)
      */
     public synchronized Session createSession(boolean transacted, int acknowledgeMode) throws JMSException {
         checkClosed();
@@ -142,7 +142,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
 
     /**
      * @return clientId
-     * @see javax.jms.Connection#getClientID()
+     * @see jakarta.jms.Connection#getClientID()
      */
     public String getClientID() {
         return this.clientId;
@@ -150,7 +150,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
 
     /**
      * @return ExceptionListener
-     * @see javax.jms.Connection#getExceptionListener()
+     * @see jakarta.jms.Connection#getExceptionListener()
      */
     public ExceptionListener getExceptionListener() {
         return this.exceptionListener;
@@ -158,7 +158,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
 
     /**
      * @return ConnectionMetaData
-     * @see javax.jms.Connection#getMetaData()
+     * @see jakarta.jms.Connection#getMetaData()
      */
     public ConnectionMetaData getMetaData() {
         return StompJmsConnectionMetaData.INSTANCE;
@@ -167,7 +167,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
     /**
      * @param clientID
      * @throws JMSException
-     * @see javax.jms.Connection#setClientID(java.lang.String)
+     * @see jakarta.jms.Connection#setClientID(java.lang.String)
      */
     public synchronized void setClientID(String clientID) throws JMSException {
         if (this.clientIdSet) {
@@ -185,7 +185,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
 
     /**
      * @param listener
-     * @see javax.jms.Connection#setExceptionListener(javax.jms.ExceptionListener)
+     * @see jakarta.jms.Connection#setExceptionListener(jakarta.jms.ExceptionListener)
      */
     public void setExceptionListener(ExceptionListener listener) {
         this.exceptionListener = listener;
@@ -193,7 +193,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
 
     /**
      * @throws JMSException
-     * @see javax.jms.Connection#start()
+     * @see jakarta.jms.Connection#start()
      */
     public void start() throws JMSException {
         checkClosed();
@@ -211,7 +211,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
 
     /**
      * @throws JMSException
-     * @see javax.jms.Connection#stop()
+     * @see jakarta.jms.Connection#stop()
      */
     public void stop() throws JMSException {
         checkClosed();
@@ -234,8 +234,8 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
      * @param maxMessages
      * @return ConnectionConsumer
      * @throws JMSException
-     * @see javax.jms.TopicConnection#createConnectionConsumer(javax.jms.Topic,
-     *      java.lang.String, javax.jms.ServerSessionPool, int)
+     * @see jakarta.jms.TopicConnection#createConnectionConsumer(jakarta.jms.Topic,
+     *      java.lang.String, jakarta.jms.ServerSessionPool, int)
      */
     public ConnectionConsumer createConnectionConsumer(Topic topic, String messageSelector,
                                                        ServerSessionPool sessionPool, int maxMessages) throws JMSException {
@@ -249,7 +249,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
      * @param acknowledgeMode
      * @return TopicSession
      * @throws JMSException
-     * @see javax.jms.TopicConnection#createTopicSession(boolean, int)
+     * @see jakarta.jms.TopicConnection#createTopicSession(boolean, int)
      */
     public TopicSession createTopicSession(boolean transacted, int acknowledgeMode) throws JMSException {
         checkClosed();
@@ -270,8 +270,8 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
      * @param maxMessages
      * @return ConnectionConsumer
      * @throws JMSException
-     * @see javax.jms.QueueConnection#createConnectionConsumer(javax.jms.Queue,
-     *      java.lang.String, javax.jms.ServerSessionPool, int)
+     * @see jakarta.jms.QueueConnection#createConnectionConsumer(jakarta.jms.Queue,
+     *      java.lang.String, jakarta.jms.ServerSessionPool, int)
      */
     public ConnectionConsumer createConnectionConsumer(Queue queue, String messageSelector,
                                                        ServerSessionPool sessionPool, int maxMessages) throws JMSException {
@@ -285,7 +285,7 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
      * @param acknowledgeMode
      * @return QueueSession
      * @throws JMSException
-     * @see javax.jms.QueueConnection#createQueueSession(boolean, int)
+     * @see jakarta.jms.QueueConnection#createQueueSession(boolean, int)
      */
     public QueueSession createQueueSession(boolean transacted, int acknowledgeMode) throws JMSException {
         checkClosed();
@@ -481,5 +481,24 @@ public class StompJmsConnection implements Connection, TopicConnection, QueueCon
 
     public void setDisconnectTimeout(long disconnectTimeout) {
         this.disconnectTimeout = disconnectTimeout;
+    }
+
+    /*
+     * New Methods from switching to jakarta.jms.
+     */
+    public Session createSession() {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public Session createSession(int i) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public ConnectionConsumer createSharedConnectionConsumer(Topic t, String s1, String s2, ServerSessionPool ssp, int i) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
+    }
+
+    public ConnectionConsumer createSharedDurableConnectionConsumer(Topic t, String s1, String s2, ServerSessionPool ssp, int i) {
+        throw new UnsupportedOperationException("Please contact the maintainer to request implementation of this method.");
     }
 }

@@ -17,7 +17,7 @@ import org.fusesource.hawtbuf.DataByteArrayOutputStream;
 import org.fusesource.stomp.jms.StompJmsExceptionSupport;
 import org.fusesource.stomp.jms.util.MarshallingSupport;
 
-import javax.jms.*;
+import jakarta.jms.*;
 import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.EOFException;
@@ -92,12 +92,12 @@ import java.io.IOException;
  * <code>char</code> must throw a <code>NullPointerException</code>.
  *
  * @openwire:marshaller code="27"
- * @see javax.jms.Session#createStreamMessage()
- * @see javax.jms.BytesMessage
- * @see javax.jms.MapMessage
- * @see javax.jms.Message
- * @see javax.jms.ObjectMessage
- * @see javax.jms.TextMessage
+ * @see jakarta.jms.Session#createStreamMessage()
+ * @see jakarta.jms.BytesMessage
+ * @see jakarta.jms.MapMessage
+ * @see jakarta.jms.Message
+ * @see jakarta.jms.ObjectMessage
+ * @see jakarta.jms.TextMessage
  */
 public class StompJmsStreamMessage extends StompJmsMessage implements StreamMessage {
 

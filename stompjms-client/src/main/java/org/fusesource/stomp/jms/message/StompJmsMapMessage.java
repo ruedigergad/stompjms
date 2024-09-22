@@ -13,10 +13,10 @@ package org.fusesource.stomp.jms.message;
 import org.fusesource.hawtbuf.Buffer;
 import org.fusesource.stomp.jms.util.StompTranslator;
 
-import javax.jms.JMSException;
-import javax.jms.MapMessage;
-import javax.jms.MessageFormatException;
-import javax.jms.MessageNotWriteableException;
+import jakarta.jms.JMSException;
+import jakarta.jms.MapMessage;
+import jakarta.jms.MessageFormatException;
+import jakarta.jms.MessageNotWriteableException;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -71,12 +71,12 @@ import java.util.Map;
  * as a <code>char</code> must throw a <code>NullPointerException</code>.
  *
  * @openwire:marshaller code="25"
- * @see javax.jms.Session#createMapMessage()
- * @see javax.jms.BytesMessage
- * @see javax.jms.Message
- * @see javax.jms.ObjectMessage
- * @see javax.jms.StreamMessage
- * @see javax.jms.TextMessage
+ * @see jakarta.jms.Session#createMapMessage()
+ * @see jakarta.jms.BytesMessage
+ * @see jakarta.jms.Message
+ * @see jakarta.jms.ObjectMessage
+ * @see jakarta.jms.StreamMessage
+ * @see jakarta.jms.TextMessage
  */
 public class StompJmsMapMessage extends StompJmsMessage implements MapMessage {
 

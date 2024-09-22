@@ -14,7 +14,7 @@ import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.broker.TransportConnector;
 import org.fusesource.stomp.jms.StompJmsConnectionFactory;
 
-import javax.jms.*;
+import jakarta.jms.*;
 
 /**
  * <p>

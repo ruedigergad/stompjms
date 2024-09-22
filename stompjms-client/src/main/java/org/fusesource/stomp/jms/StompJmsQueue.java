@@ -10,7 +10,7 @@
 
 package org.fusesource.stomp.jms;
 
-import javax.jms.Queue;
+import jakarta.jms.Queue;
 
 /**
  * Queue implementation
@@ -42,7 +42,7 @@ public class StompJmsQueue extends StompJmsDestination implements Queue {
 
     /**
      * @return name
-     * @see javax.jms.Queue#getQueueName()
+     * @see jakarta.jms.Queue#getQueueName()
      */
     public String getQueueName() {
         return getName();

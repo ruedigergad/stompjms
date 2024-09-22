@@ -16,7 +16,7 @@ import org.fusesource.hawtbuf.DataByteArrayInputStream;
 import org.fusesource.hawtbuf.DataByteArrayOutputStream;
 import org.fusesource.stomp.jms.StompJmsExceptionSupport;
 
-import javax.jms.*;
+import jakarta.jms.*;
 import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
@@ -66,12 +66,12 @@ import java.io.IOException;
  * <CODE>MessageNotWriteableException</CODE> is thrown.
  *
  * @openwire:marshaller code=24
- * @see javax.jms.Session#createBytesMessage()
- * @see javax.jms.MapMessage
- * @see javax.jms.Message
- * @see javax.jms.ObjectMessage
- * @see javax.jms.StreamMessage
- * @see javax.jms.TextMessage
+ * @see jakarta.jms.Session#createBytesMessage()
+ * @see jakarta.jms.MapMessage
+ * @see jakarta.jms.Message
+ * @see jakarta.jms.ObjectMessage
+ * @see jakarta.jms.StreamMessage
+ * @see jakarta.jms.TextMessage
  */
 public class StompJmsBytesMessage extends StompJmsMessage implements BytesMessage {
     protected transient DataByteArrayOutputStream bytesOut;
@@ -190,7 +190,7 @@ public class StompJmsBytesMessage extends StompJmsMessage implements BytesMessag
      *         unsigned 8-bit number
      * @throws JMSException                  if the JMS provider fails to read the message due to
      *                                       some internal error.
-     * @throws javax.jms.MessageEOFException if unexpected end of bytes stream has been
+     * @throws jakarta.jms.MessageEOFException if unexpected end of bytes stream has been
      *                                       reached.
      * @throws MessageNotReadableException   if the message is in write-only mode.
      */

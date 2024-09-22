@@ -10,8 +10,8 @@
 
 package org.fusesource.stomp.jms;
 
-import javax.jms.IllegalStateException;
-import javax.jms.*;
+import jakarta.jms.IllegalStateException;
+import jakarta.jms.*;
 
 /**
  * Implementation of a TopicPublisher
@@ -31,7 +31,7 @@ public class StompJmsTopicPublisher extends StompJmsMessageProducer implements T
     /**
      * @return the Topic
      * @throws IllegalStateException
-     * @see javax.jms.TopicPublisher#getTopic()
+     * @see jakarta.jms.TopicPublisher#getTopic()
      */
     public Topic getTopic() throws IllegalStateException {
         checkClosed();
@@ -41,7 +41,7 @@ public class StompJmsTopicPublisher extends StompJmsMessageProducer implements T
     /**
      * @param message
      * @throws JMSException
-     * @see javax.jms.TopicPublisher#publish(javax.jms.Message)
+     * @see jakarta.jms.TopicPublisher#publish(jakarta.jms.Message)
      */
     public void publish(Message message) throws JMSException {
         super.send(message);
@@ -52,7 +52,7 @@ public class StompJmsTopicPublisher extends StompJmsMessageProducer implements T
      * @param topic
      * @param message
      * @throws JMSException
-     * @see javax.jms.TopicPublisher#publish(javax.jms.Topic, javax.jms.Message)
+     * @see jakarta.jms.TopicPublisher#publish(jakarta.jms.Topic, jakarta.jms.Message)
      */
     public void publish(Topic topic, Message message) throws JMSException {
         super.send(topic, message);
@@ -65,7 +65,7 @@ public class StompJmsTopicPublisher extends StompJmsMessageProducer implements T
      * @param priority
      * @param timeToLive
      * @throws JMSException
-     * @see javax.jms.TopicPublisher#publish(javax.jms.Message, int, int, long)
+     * @see jakarta.jms.TopicPublisher#publish(jakarta.jms.Message, int, int, long)
      */
     public void publish(Message message, int deliveryMode, int priority, long timeToLive) throws JMSException {
         super.send(message, deliveryMode, priority, timeToLive);
@@ -79,7 +79,7 @@ public class StompJmsTopicPublisher extends StompJmsMessageProducer implements T
      * @param priority
      * @param timeToLive
      * @throws JMSException
-     * @see javax.jms.TopicPublisher#publish(javax.jms.Topic, javax.jms.Message, int, int, long)
+     * @see jakarta.jms.TopicPublisher#publish(jakarta.jms.Topic, jakarta.jms.Message, int, int, long)
      */
     public void publish(Topic topic, Message message, int deliveryMode, int priority, long timeToLive)
             throws JMSException {
