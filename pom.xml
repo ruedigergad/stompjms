@@ -22,7 +22,7 @@
   
   <groupId>org.fusesource.stompjms</groupId>
   <artifactId>stompjms-project</artifactId>
-  <version>1.20-SNAPSHOT</version>
+  <version>1.21-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <name>${project.artifactId}</name>
@@ -35,11 +35,11 @@
     <forge-project-id-uc>STOMPJMS</forge-project-id-uc>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     
-    <junit-version>4.7</junit-version>
-    <slf4j-version>1.6.1</slf4j-version>
-    <hawtbuf-version>1.9</hawtbuf-version>
-    <hawtdispatch-version>1.20</hawtdispatch-version>
-    <apollo-version>1.6</apollo-version>
+    <junit-version>4.13.2</junit-version>
+    <slf4j-version>1.7.36</slf4j-version>
+    <hawtbuf-version>1.11</hawtbuf-version>
+    <hawtdispatch-version>1.22</hawtdispatch-version>
+    <apollo-version>1.7.1</apollo-version>
     <activemq-version>5.9.0</activemq-version>
     <mvnplugins-version>1.15</mvnplugins-version>
     <mockito.version>1.9.5</mockito.version>
@@ -149,8 +149,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.1</version>
         <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
+          <source>11</source>
+          <target>11</target>
         </configuration>
       </plugin>
       <plugin>
@@ -261,7 +261,7 @@
 
   <modules>
     <module>stompjms-client</module>
-    <module>stompjms-website</module>
+    <!--<module>stompjms-website</module>-->
     <module>stompjms-activemq-test</module>
   </modules>
     
