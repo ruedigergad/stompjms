@@ -29,7 +29,7 @@
   <description>
       STOMP-JMS is a JMS implementation using STOMP as the wire protocol
   </description>
-  
+
   <properties>
     <forge-project-id>stompjms</forge-project-id>
     <forge-project-id-uc>STOMPJMS</forge-project-id-uc>
@@ -83,14 +83,6 @@
     <developerConnection>scm:git:ssh://git@forge.fusesource.com/${forge-project-id}.git</developerConnection>
     <url>http://github.com/fusesource/stompjms/tree/master</url>
   </scm>
-
-  <distributionManagement>
-    <site>
-      <id>website.fusesource.org</id>
-      <name>website</name>
-      <url>dav:http://fusesource.com/forge/dav/${forge-project-id}/maven/${project.version}</url>
-    </site>
-  </distributionManagement>
 
   <developers>
     <developer>
@@ -264,5 +256,13 @@
     <!--<module>stompjms-website</module>-->
     <module>stompjms-activemq-test</module>
   </modules>
+
+  <distributionManagement>
+  <repository>
+    <id>clojars</id>
+    <name>Clojars repository</name>
+    <url>https://clojars.org/repo</url>
+  </repository>
+  </distributionManagement>
     
 </project>

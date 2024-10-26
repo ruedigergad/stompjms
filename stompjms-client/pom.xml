@@ -22,7 +22,7 @@
   
   <groupId>org.fusesource.stompjms</groupId>
   <artifactId>stompjms-client</artifactId>
-  <version>1.21</version>
+  <version>1.22</version>
   <packaging>bundle</packaging>
   
   <name>${project.artifactId}</name>
@@ -30,10 +30,12 @@
         STOMP-JMS is a JMS implementation using STOMP as the wire protocol
   </description>
 
+
   <licenses>
-  <license>
-    <name>CDDL 1.0</name>
-  </license>
+    <license>
+      <name>Common Development and Distribution License (CDDL)</name>
+      <url>http://www.opensource.org/licenses/cddl1</url>
+    </license>
   </licenses>
   
   <dependencies>
