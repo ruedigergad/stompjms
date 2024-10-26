@@ -29,6 +29,12 @@
   <description>
         STOMP-JMS is a JMS implementation using STOMP as the wire protocol
   </description>
+
+  <licenses>
+  <license>
+    <name>CDDL 1.0</name>
+  </license>
+  </licenses>
   
   <dependencies>
 
@@ -183,5 +189,13 @@
       </plugin>
     </plugins>
   </build>
+
+  <distributionManagement>
+  <repository>
+    <id>clojars</id>
+    <name>Clojars repository</name>
+    <url>https://clojars.org/repo</url>
+  </repository>
+  </distributionManagement>
       
 </project>
